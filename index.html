@@ -60,7 +60,7 @@
 
 <body class="position-fixed bg-secondary top-0 start-0 w-100 h-100">
   <!-- seo -->
-  <main class="d-none">
+  <main>
     <div class="container-fluid">
       <article>
         <h1>Delvani Eletricista</h1>
@@ -78,44 +78,46 @@
   </main>
 
   <!-- main -->
-  <div class="position-absolute overflow-y-scroll top-50 start-0 translate-middle-y w-100 mh-100">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-6 col-xl-4 col-xxl-2">
-          <div class="container-fluid">
-            <div class="row bg-arsenic justify-content-center align-items-center border border-secondary rounded py-3">
-              <div class="col-sm text-goldenrod">
-                <div class="d-flex justify-content-center mb-3">
-                  <div class="bg-image user-profile user-avatar rounded-circle border border-3 shadow-sm"></div>
+  <div class="position-fixed bg-secondary text-goldenrod top-0 start-0 w-100 h-100">
+    <div class="position-absolute overflow-y-scroll top-50 start-0 translate-middle-y w-100 mh-100">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6 col-xl-4 col-xxl-2">
+            <div class="container-fluid">
+              <div class="row bg-arsenic justify-content-center align-items-center border border-secondary rounded py-3">
+                <div class="col-sm text-goldenrod">
+                  <div class="d-flex justify-content-center mb-3">
+                    <div class="bg-image user-profile user-avatar rounded-circle border border-3 shadow-sm"></div>
+                  </div>
+
+                  <div class="text-center">
+                    <h5 class="fw-bold m-0">DELVANI&ensp;ELETRICISTA</h5>
+                    <p class="text-white-50 m-0"><i>“Instalação e manutenção eletríca.”</i></p>
+                  </div>
+
+                  <div class="d-sm-none mb-5"></div>
                 </div>
 
-                <div class="text-center">
-                  <h5 class="fw-bold m-0">DELVANI&ensp;ELETRICISTA</h5>
-                  <p class="text-white-50 m-0"><i>“Instalação e manutenção eletríca.”</i></p>
-                </div>
+                <div class="d-none d-sm-block text-secondary vr" style="padding: 0.01em;"></div>
 
-                <div class="d-sm-none mb-5"></div>
-              </div>
+                <div class="col-sm">
+                  <div class="d-grid gap-3">
+                    <button class="btn btn-secondary fw-medium" data-btn="telegram">
+                      <i class="bi bi-telegram"></i>&ensp;Telegram
+                    </button>
 
-              <div class="d-none d-sm-block text-secondary vr" style="padding: 0.01em;"></div>
+                    <button class="btn btn-secondary fw-medium" data-btn="whatsapp">
+                      <i class="bi bi-whatsapp"></i>&ensp;WhatsApp
+                    </button>
 
-              <div class="col-sm">
-                <div class="d-grid gap-3">
-                  <button class="btn btn-secondary fw-medium" data-btn="telegram">
-                    <i class="bi bi-telegram"></i>&ensp;Telegram
-                  </button>
+                    <button class="btn btn-secondary fw-medium" data-btn="qrcode">
+                      <i class="bi bi-qr-code"></i>&ensp;QR contato
+                    </button>
 
-                  <button class="btn btn-secondary fw-medium" data-btn="whatsapp">
-                    <i class="bi bi-whatsapp"></i>&ensp;WhatsApp
-                  </button>
-
-                  <button class="btn btn-secondary fw-medium" data-btn="qrcode">
-                    <i class="bi bi-qr-code"></i>&ensp;QR contato
-                  </button>
-
-                  <button class="btn btn-secondary fw-medium" data-btn="share" hidden>
-                    <i class="bi bi-share"></i>&ensp;Compartilhar
-                  </button>
+                    <button class="btn btn-secondary fw-medium" data-btn="share" hidden>
+                      <i class="bi bi-share"></i>&ensp;Compartilhar
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -146,6 +148,17 @@
     </div>
   </div>
 
+  <!-- footer -->
+  <footer class="d-sm-none d-md-block">
+    <div class="fixed-bottom">
+      <div class="container-fluid">
+        <div class="text-center">
+          <pre class="text-white-50 fw-medium">Powered by Jose Delvani</pre>
+        </div>
+      </div>
+    </div>
+  </footer>
+
   <!-- templates -->
   <template data-template="qrcode">
     <div class="container-fluid">
@@ -158,17 +171,6 @@
       </div>
     </div>
   </template>
-
-  <!-- footer -->
-  <footer class="d-sm-none d-md-block">
-    <div class="fixed-bottom">
-      <div class="container-fluid">
-        <div class="text-center">
-          <pre class="text-white-50 fw-medium">Powered by Jose Delvani</pre>
-        </div>
-      </div>
-    </div>
-  </footer>
 
   <!-- scripts -->
   <script src="/static/js/libs/jquery.min.js" crossorigin="anonymous"></script>
