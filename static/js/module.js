@@ -28,7 +28,9 @@ function openVCard() {
       },
 
       ok: { btnClass: 'text-bg-goldenrod' }
-    }
+    },
+
+    backgroundDismiss: true
   })
 }
 
