@@ -15,9 +15,21 @@ body {
 }
 
 .user-avatar {
-  width: 7.5em;
-  height: 7.5em;
+  width: 6em;
+  height: 6em;
   background-image: url("/static/img/user/avatar.jpg");
+}
+
+.social-telegram {
+  width: 2.25em;
+  height: 2.25em;
+  background-image: url("/static/img/social/telegram.svg");
+}
+
+.social-whatsapp {
+  width: 2.25em;
+  height: 2.25em;
+  background-image: url("/static/img/social/whatsapp.svg");
 }
 
 .text-arsenic {

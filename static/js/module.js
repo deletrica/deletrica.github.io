@@ -5,6 +5,10 @@ import vcard from './modules/vcard.js';
 import qrcode from './modules/qrcode.js';
 import Profile from './modules/profile.js';
 
+function openDial() {
+  location.assign(`tel:${Profile.tel}`);
+}
+
 function openShare() {
   share({
     url: location,
@@ -14,8 +18,8 @@ function openShare() {
 }
 
 function openVCard() {
-  $.confirm({
-    title: 'QR contato',
+  $.dialog({
+    title: false,
     content: $('[data-template="qrcode"]').html(),
     buttons: {
       download: {
@@ -35,7 +39,9 @@ $(window).on('load', function(evt) {
 
   if (share.support) $('[data-btn="share"]').removeAttr('hidden');
   $('[data-btn]').click(function(evt) {
-    if (this.dataset.btn === 'share') openShare();
+    evt.preventDefault();
+    if (this.dataset.btn === 'tel') openDial();
+    else if (this.dataset.btn === 'share') openShare();
     else if (this.dataset.btn === 'qrcode') openVCard();
     else if (/^(telegram|whatsapp)$/.test(this.dataset.btn)) openSocial(this.dataset.btn);
   });
