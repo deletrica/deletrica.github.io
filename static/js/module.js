@@ -6,6 +6,7 @@ import share from './modules/share.js';
 import vcard from './modules/vcard.js';
 import qrcode from './modules/qrcode.js';
 import Profile from './modules/profile.js';
+import Comments from './modules/comments.js';
 
 qrcode.instance = qrcode(vcard({ fn: Profile.name, tel: Profile.tel }));
 dialog = {
@@ -47,14 +48,22 @@ domReady = () => {
     Profile.social.telegram = 'tg:resolve?domain=' + (new URL(Profile.social.telegram)).pathname.slice(1);
   }
 
-  if (share.support) $('[data-btn="share"]').parent().removeAttr('hidden');
+  if (share.support) $('[data-dialog-btn="share"]').parent().removeAttr('hidden');
 
-  $('[data-btn]').click(function(evt) {
+  $('[data-dialog-btn]').click(function(evt) {
+    console.log(this.dataset)
     evt.preventDefault();
-    if (this.dataset.btn === 'tel') dialog.openDial();
-    else if (this.dataset.btn === 'share') dialog.openShare();
-    else if (this.dataset.btn === 'qrcode') dialog.openVCard();
-    else if (/^(telegram|whatsapp)$/.test(this.dataset.btn)) dialog.openSocial(this.dataset.btn);
+    if (this.dataset.dialogBtn === 'tel') dialog.openDial();
+    else if (this.dataset.dialogBtn === 'share') dialog.openShare();
+    else if (this.dataset.dialogBtn === 'qrcode') dialog.openVCard();
+    else if (/^(telegram|whatsapp)$/.test(this.dataset.dialogBtn)) dialog.openSocial(this.dataset.dialogBtn);
+  });
+
+  $('[data-btn="load-comments"]').click(function(evt) {
+    $(this).fadeOut(undefined, function(evt) {
+      $(this).parent().html('Loading comments…');
+      Comments.load();
+    });
   });
 
   $('[data-page-splash]').fadeOut();

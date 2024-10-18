@@ -89,6 +89,13 @@
 
     gtag('config', 'G-4528RJHMH6');
   </script>
+
+  <script>
+    var disqus_config = function() {
+      this.page.url = document.URL;
+      this.page.identifier = 1;
+    };
+  </script>
 </head>
 
 <body class="position-fixed bg-cover top-0 start-0 w-100 h-100">
@@ -112,14 +119,14 @@
   <div class="d-none">
     <template data-template="profile">
       <div class="position-fixed text-goldenrod top-0 start-0 w-100 h-100 z-1">
-        <div class="position-absolute overflow-y-scroll top-50 start-0 translate-middle-y w-100 mh-100">
+        <div class="position-absolute overflow-y-scroll top-50 start-0 translate-middle-y w-100 mh-100 py-3">
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-lg-8 col-xl-7 col-xxl-6">
                 <div class="container-fluid">
                   <div class="row text-bg-goldenrod justify-content-end align-items-center rounded-top">
-                    <div class="col-auto px-0" hidden><button class="btn" data-btn="share"><i class="bi bi-share-fill"></i></button></div>
-                    <div class="col-auto px-0"><button class="btn" data-btn="qrcode"><i class="bi bi-qr-code"></i></button></div>
+                    <div class="col-auto px-0" hidden><button class="btn" data-dialog-btn="share"><i class="bi bi-share-fill"></i></button></div>
+                    <div class="col-auto px-0"><button class="btn" data-dialog-btn="qrcode"><i class="bi bi-qr-code"></i></button></div>
                   </div>
 
                   <div class="row bg-arsenic justify-content-center align-items-center rounded-bottom">
@@ -140,10 +147,10 @@
 
                     <div class="col-sm text-center text-white-50 my-3">
                       <div class="text-goldenrod fw-medium">TELEFONE</div>
-                      <h3 class="mb-3"><a href="action:dialog" class="text-decoration-none text-reset" data-btn="tel">(88) 9-9355-6712</a></h3>
+                      <h3 class="mb-3"><a href="action:dialog" class="text-decoration-none text-reset" data-dialog-btn="tel">(88) 9-9355-6712</a></h3>
                       <div class="d-grid d-flex gap-3 justify-content-center align-items-center">
                         <div class="text-center">
-                          <a href="action:dialog" class="text-decoration-none text-reset" data-btn="telegram">
+                          <a href="action:dialog" class="text-decoration-none text-reset" data-dialog-btn="telegram">
                             <div class="d-flex justify-content-center">
                               <div class="bg-image social-telegram"></div>
                             </div>
@@ -155,7 +162,7 @@
                         <div class="vr"></div>
 
                         <div class="text-center">
-                          <a href="action:dialog" class="text-decoration-none text-reset" data-btn="whatsapp">
+                          <a href="action:dialog" class="text-decoration-none text-reset" data-dialog-btn="whatsapp">
                             <div class="d-flex justify-content-center">
                               <div class="bg-image social-whatsapp"></div>
                             </div>
@@ -163,6 +170,16 @@
                             <small>WhatsApp</small>
                           </a>
                         </div>
+                      </div>
+                    </div>
+
+                    <div class="w-100">
+                      <hr class="border border-secondary">
+                    </div>
+
+                    <div class="col-sm col-md-8 my-3">
+                      <div id="disqus_thread">
+                        <div class="text-center mb-3"><button class="btn btn-sm btn-light rounded-pill fw-medium px-3" data-btn="load-comments">Load comments?</button></div>
                       </div>
                     </div>
                   </div>
