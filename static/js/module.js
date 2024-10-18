@@ -5,47 +5,70 @@ import vcard from './modules/vcard.js';
 import qrcode from './modules/qrcode.js';
 import Profile from './modules/profile.js';
 
-function openDial() {
-  location.assign(`tel:${Profile.tel}`);
-}
+const dialog = {
+  openDial() {
+    location.assign(`tel:${Profile.tel}`);
+  },
 
-function openShare() {
-  share({
-    url: location,
-    text: Profile.name + ' ' + Profile.tel,
-    title: Profile.name
-  });
-}
+  openShare() {
+    share({
+      url: location,
+      text: Profile.name + ' ' + Profile.tel,
+      title: Profile.name
+    });
+  },
 
-function openVCard() {
-  $.dialog({
-    title: false,
-    content: $('[data-template="qrcode"]').html(),
-    buttons: {
-      download: {
-        btnClass: 'text-bg-goldenrod',
-        action: () => qrcode.instance.download({ name: Profile.name + ' ' + Profile.tel })
+  openVCard() {
+    $.dialog({
+      title: false,
+      content: $('[data-template="qrcode"]').html(),
+      buttons: {
+        download: {
+          btnClass: 'text-bg-goldenrod',
+          action: () => qrcode.instance.download({ name: Profile.name + ' ' + Profile.tel })
+        },
+
+        ok: { btnClass: 'text-bg-goldenrod' }
       },
 
-      ok: { btnClass: 'text-bg-goldenrod' }
-    },
+      backgroundDismiss: true
+    })
+  },
 
-    backgroundDismiss: true
-  })
+  openSocial(label) { location.assign(Profile.social[label]); },
+
+  pageNotFound(to, from) {
+    $.alert(`<span class="text-muted">Page not found:</span>&ensp;<span class="text-danger">${from.pathname}</span>`);
+  }
+};
+
+function parseUrl() {
+  let urlTo, urlFrom, params;
+
+  if ((document.referrer || [null]).includes(location.hostname)) {
+    urlTo = new URL(document.URL);
+    urlFrom = new URL(document.referrer);
+    params = urlTo.searchParams.get('dialog') || null;
+
+    if (params === 'PAGE_NOT_FOUND') dialog.pageNotFound(urlTo, urlFrom);
+  }
 }
-
-function openSocial(label) { location.assign(Profile.social[label]); }
 
 $(window).on('load', function(evt) {
   qrcode.instance = qrcode(vcard({ fn: Profile.name, tel: Profile.tel }));
 
+  if (navigator.isMobile()) {
+    Profile.social.whatsapp = 'whatsapp://' + (new URL(Profile.social.whatsapp)).pathname.slice(1);
+    Profile.social.telegram = 'tg:resolve?domain=' + (new URL(Profile.social.telegram)).pathname.slice(1);
+  }
+
   if (share.support) $('[data-btn="share"]').parent().removeAttr('hidden');
   $('[data-btn]').click(function(evt) {
     evt.preventDefault();
-    if (this.dataset.btn === 'tel') openDial();
-    else if (this.dataset.btn === 'share') openShare();
-    else if (this.dataset.btn === 'qrcode') openVCard();
-    else if (/^(telegram|whatsapp)$/.test(this.dataset.btn)) openSocial(this.dataset.btn);
+    if (this.dataset.btn === 'tel') dialog.openDial();
+    else if (this.dataset.btn === 'share') dialog.openShare();
+    else if (this.dataset.btn === 'qrcode') dialog.openVCard();
+    else if (/^(telegram|whatsapp)$/.test(this.dataset.btn)) dialog.openSocial(this.dataset.btn);
   });
 
   $(document.body).waitForImages(function() {
@@ -53,7 +76,9 @@ $(window).on('load', function(evt) {
       .then(blob => {
         $('<img/>').on('load error', function(evt) {
           $($('[data-template="qrcode"]')[0].content).find('[data-bg="qrcode"]').css('background-image', `url("${this.src}")`);
-          $('[data-page=splash]').fadeOut();
+          $('[data-page=splash]').fadeOut(function(evt) {
+            parseUrl();
+          });
         }).attr('src', URL.createObjectURL(blob));
       })
   });
