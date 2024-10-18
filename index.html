@@ -92,26 +92,8 @@
 </head>
 
 <body class="position-fixed top-0 start-0 w-100 h-100">
-  <!-- seo -->
-  <main>
-    <div class="container-fluid">
-      <article>
-        <h1>Delvani Eletricista</h1>
-
-        <p>Iluminando a sua vida com segurança e eficiência. Instalação, manutenção e soluções elétricas seguras e eficientes, do seu jeito!</p>
-
-        <div class="text-center">
-          <figure class="figure">
-            <img src="/static/img/user/avatar.jpg" class="figure-img img-fluid rounded w-50" alt="Delvani Eletricista">
-            <figcaption class="figure-caption">Foto do perfil.</figcaption>
-          </figure>
-        </div>
-      </article>
-    </div>
-  </main>
-
   <!-- splash screen -->
-  <div class="position-fixed text-bg-arsenic top-0 start-0 w-100 h-100 z-2" data-page="splash">
+  <div class="position-fixed text-bg-arsenic top-0 start-0 w-100 h-100 z-2" data-page-splash>
     <div class="position-absolute top-50 start-0 translate-middle-y w-100">
       <div class="container-fluid">
         <div class="d-flex justify-content-center">
@@ -127,57 +109,61 @@
   </div>
 
   <!-- main -->
-  <div class="position-fixed text-goldenrod top-0 start-0 w-100 h-100 z-1" style="background-color: #3B444B;" data-page="vcard">
-    <div class="position-absolute overflow-y-scroll top-50 start-0 translate-middle-y w-100 mh-100">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-8 col-xl-7 col-xxl-6">
-            <div class="container-fluid">
-              <div class="row text-bg-goldenrod justify-content-end align-items-center rounded-top">
-                <div class="col-auto px-0" hidden><button class="btn" data-btn="share"><i class="bi bi-share-fill"></i></button></div>
-                <div class="col-auto px-0"><button class="btn" data-btn="qrcode"><i class="bi bi-qr-code"></i></button></div>
-              </div>
-
-              <div class="row bg-arsenic justify-content-center align-items-center rounded-bottom">
-                <div class="col-sm text-goldenrod my-3">
-                  <div class="d-flex justify-content-center mb-3">
-                    <div class="bg-image user-avatar rounded-circle border border-3 shadow-sm"></div>
+  <div class="d-none">
+    <template data-template="profile">
+      <div class="position-fixed text-goldenrod top-0 start-0 w-100 h-100 z-1" style="background-color: #3B444B;">
+        <div class="position-absolute overflow-y-scroll top-50 start-0 translate-middle-y w-100 mh-100">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8 col-xl-7 col-xxl-6">
+                <div class="container-fluid">
+                  <div class="row text-bg-goldenrod justify-content-end align-items-center rounded-top">
+                    <div class="col-auto px-0" hidden><button class="btn" data-btn="share"><i class="bi bi-share-fill"></i></button></div>
+                    <div class="col-auto px-0"><button class="btn" data-btn="qrcode"><i class="bi bi-qr-code"></i></button></div>
                   </div>
 
-                  <div class="text-center">
-                    <h5 class="fw-bold m-0">DELVANI&ensp;ELETRICISTA</h5>
-                    <p class="text-white-50 m-0">Instalação e manutenção elétrica.</p>
-                    <p class="text-white-50 m-0"><small><i class="bi bi-geo-alt-fill text-danger"></i>&ensp;ITAREMA-CE</small></p>
-                  </div>
-                </div>
+                  <div class="row bg-arsenic justify-content-center align-items-center rounded-bottom">
+                    <div class="col-sm text-goldenrod my-3">
+                      <div class="d-flex justify-content-center mb-3">
+                        <div class="bg-image user-avatar rounded-circle border border-3 shadow-sm"></div>
+                      </div>
 
-                <hr class="d-sm-none text-secondary m-0">
-                <div class="d-none d-sm-block text-secondary vr" style="padding: 0.01em;"></div>
-
-                <div class="col-sm text-center text-white-50 my-3">
-                  <div class="text-goldenrod fw-medium">TELEFONE</div>
-                  <h3 class="mb-3"><a href="action:dialog" class="text-decoration-none text-reset" data-btn="tel">(88) 9-9355-6712</a></h3>
-                  <div class="d-grid d-flex gap-3 justify-content-center align-items-center">
-                    <div class="text-center">
-                      <a href="action:dialog" class="text-decoration-none text-reset" data-btn="telegram">
-                        <div class="d-flex justify-content-center">
-                          <div class="bg-image social-telegram"></div>
-                        </div>
-
-                        <small>Telegram</small>
-                      </a>
+                      <div class="text-center">
+                        <h5 class="fw-bold m-0">DELVANI&ensp;ELETRICISTA</h5>
+                        <p class="text-white-50 m-0">Instalação e manutenção elétrica.</p>
+                        <p class="text-white-50 m-0"><small><i class="bi bi-geo-alt-fill text-danger"></i>&ensp;ITAREMA-CE</small></p>
+                      </div>
                     </div>
 
-                    <div class="vr"></div>
+                    <hr class="d-sm-none text-secondary m-0">
+                    <div class="d-none d-sm-block text-secondary vr" style="padding: 0.01em;"></div>
 
-                    <div class="text-center">
-                      <a href="action:dialog" class="text-decoration-none text-reset" data-btn="whatsapp">
-                        <div class="d-flex justify-content-center">
-                          <div class="bg-image social-whatsapp"></div>
+                    <div class="col-sm text-center text-white-50 my-3">
+                      <div class="text-goldenrod fw-medium">TELEFONE</div>
+                      <h3 class="mb-3"><a href="action:dialog" class="text-decoration-none text-reset" data-btn="tel">(88) 9-9355-6712</a></h3>
+                      <div class="d-grid d-flex gap-3 justify-content-center align-items-center">
+                        <div class="text-center">
+                          <a href="action:dialog" class="text-decoration-none text-reset" data-btn="telegram">
+                            <div class="d-flex justify-content-center">
+                              <div class="bg-image social-telegram"></div>
+                            </div>
+
+                            <small>Telegram</small>
+                          </a>
                         </div>
 
-                        <small>WhatsApp</small>
-                      </a>
+                        <div class="vr"></div>
+
+                        <div class="text-center">
+                          <a href="action:dialog" class="text-decoration-none text-reset" data-btn="whatsapp">
+                            <div class="d-flex justify-content-center">
+                              <div class="bg-image social-whatsapp"></div>
+                            </div>
+
+                            <small>WhatsApp</small>
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -186,7 +172,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </template>
   </div>
 
   <!-- templates -->
@@ -196,7 +182,7 @@
         <div class="row justify-content-center">
           <div class="col-sm p-5">
             <div class="ratio ratio-1x1">
-              <div class="bg-image" data-bg="qrcode"></div>
+              <div class="bg-image qr-code" data-bg="qrcode"></div>
             </div>
           </div>
         </div>
