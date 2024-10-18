@@ -53,7 +53,7 @@ $(window).on('load', function(evt) {
       .then(blob => {
         $('<img/>').on('load error', function(evt) {
           $($('[data-template="qrcode"]')[0].content).find('[data-bg="qrcode"]').css('background-image', `url("${this.src}")`);
-          $('[data-splash]').fadeOut();
+          $('[data-page=splash]').fadeOut();
         }).attr('src', URL.createObjectURL(blob));
       })
   });

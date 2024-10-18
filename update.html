@@ -20,7 +20,7 @@
 </head>
 
 <body class="position-fixed text-bg-light top-0 start-0 w-100 h-100">
-  <div class="position-absolute top-50 start-0 translate-middle-y w-100 mh-100 py-3">
+  <div class="position-absolute overflow-y-scroll top-50 start-0 translate-middle-y w-100 mh-100 py-3">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-8">
@@ -28,19 +28,22 @@
             <div class="col-sm">
               <div class="text-center text-secondary">
                 <div class="text-warning icon mb-3"><i class="bi bi-exclamation-circle-fill"></i></div>
-                <h1 class="m-0">Update your Browser!</h1>
+                <h1 class="d-sm-none m-0">Update your Browser!</h1>
+                <h3 class="d-none d-sm-block m-0">Update your Browser!</h3>
               </div>
             </div>
 
+            <div class="d-none d-sm-block vr mx-auto" style="padding: 0.01em;"></div>
+
             <div class="col-sm">
               <div class="text-center text-sm-start opacity-75">
-                <p>
-                  Your browser is not supported!
+                <p class="m-0">
+                  Your browser is not supported!<br>
                   Update your browser to view this website correctly.
                 </p>
 
                 <noscript>
-                  <small class="text-danger">Your browser does not support JavaScript!</small>
+                  <div><small class="text-danger">Your browser does not support JavaScript!</small></div>
                 </noscript>
               </div>
             </div>

@@ -4,5 +4,5 @@
 */
 
 window.location.replace(
-  '/update.html'
+  '/update.html?reason=nomodule'
 );

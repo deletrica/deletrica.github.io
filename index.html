@@ -3,7 +3,7 @@
 
 <head>
   <noscript>
-    <meta http-equiv="refresh" content="0; url=https://deletrica.github.io/update.html">
+    <meta http-equiv="refresh" content="0; url=/update.html?reason=noscript">
   </noscript>
 
   <script src="/static/js/nomodule.js" crossorigin="anonymous" nomodule></script>
@@ -107,8 +107,24 @@
     </div>
   </main>
 
+  <!-- splash screen -->
+  <div class="position-fixed text-bg-arsenic top-0 start-0 w-100 h-100 z-2" data-page="splash">
+    <div class="position-absolute top-50 start-0 translate-middle-y w-100">
+      <div class="container-fluid">
+        <div class="d-flex justify-content-center">
+          <span class="bg-image app-icon rounded-circle"></span>
+        </div>
+
+        <div class="text-center">
+          <div class="mb-3"><span class="d-inline-block loader opacity-25"></span></div>
+          <div><small class="text-white-50 fw-medium">Powered by <span class="text-goldenrod">Jose Delvani</span></small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- main -->
-  <div class="position-fixed text-goldenrod top-0 start-0 w-100 h-100" style="background-color: #3B444B;">
+  <div class="position-fixed text-goldenrod top-0 start-0 w-100 h-100 z-1" style="background-color: #3B444B;" data-page="vcard">
     <div class="position-absolute overflow-y-scroll top-50 start-0 translate-middle-y w-100 mh-100">
       <div class="container">
         <div class="row justify-content-center">
@@ -170,36 +186,20 @@
     </div>
   </div>
 
-  <!-- splash screen -->
-  <div data-splash>
-    <div class="position-fixed bg-arsenic text-goldenrod top-0 start-0 w-100 h-100">
-      <div class="position-absolute top-50 start-0 translate-middle-y w-100">
-        <div class="container-fluid">
-          <div class="d-flex justify-content-center">
-            <span class="bg-image app-icon rounded-circle"></span>
-          </div>
-
-          <div class="text-center">
-            <div class="mb-3"><span class="d-inline-block loader opacity-25"></span></div>
-            <div><small class="text-white-50 fw-medium">Powered by <span class="text-goldenrod">Jose Delvani</span></small></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- templates -->
-  <template data-template="qrcode">
-    <div class="container-fluid">
-      <div class="row justify-content-center">
-        <div class="col-sm p-5">
-          <div class="ratio ratio-1x1">
-            <div class="bg-image" data-bg="qrcode"></div>
+  <div class="d-none">
+    <template data-template="qrcode">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-sm p-5">
+            <div class="ratio ratio-1x1">
+              <div class="bg-image" data-bg="qrcode"></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </template>
+    </template>
+  </div>
 
   <!-- scripts -->
   <script src="/static/js/libs/jquery.min.js" crossorigin="anonymous"></script>
