@@ -35,24 +35,8 @@ const dialog = {
     })
   },
 
-  openSocial(label) { location.assign(Profile.social[label]); },
-
-  pageNotFound(to, from) {
-    $.alert(`<span class="text-muted">Page not found:</span>&ensp;<span class="text-danger">${from.pathname}</span>`);
-  }
+  openSocial(label) { location.assign(Profile.social[label]); }
 };
-
-function parseUrl() {
-  let urlTo, urlFrom, params;
-
-  if ((document.referrer || [null]).includes(location.hostname)) {
-    urlTo = new URL(document.URL);
-    urlFrom = new URL(document.referrer);
-    params = urlTo.searchParams.get('dialog') || null;
-
-    if (params === 'PAGE_NOT_FOUND') dialog.pageNotFound(urlTo, urlFrom);
-  }
-}
 
 $(window).on('load', function(evt) {
   qrcode.instance = qrcode(vcard({ fn: Profile.name, tel: Profile.tel }));
@@ -76,9 +60,7 @@ $(window).on('load', function(evt) {
       .then(blob => {
         $('<img/>').on('load error', function(evt) {
           $($('[data-template="qrcode"]')[0].content).find('[data-bg="qrcode"]').css('background-image', `url("${this.src}")`);
-          $('[data-page=splash]').fadeOut(function(evt) {
-            parseUrl();
-          });
+          $('[data-page=splash]').fadeOut(undefined, function(evt) {});
         }).attr('src', URL.createObjectURL(blob));
       })
   });
