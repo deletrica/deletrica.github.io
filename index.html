@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <!-- metas -->
@@ -13,13 +13,13 @@
     <meta http-equiv="refresh" content="0; url=/update.html?reason=noscript">
   </noscript>
 
-  <meta name="title" content="Delvani Eletricista">
-  <meta name="author" content="Jose Delvani">
+  <meta name="title" content="Delvani Eletricista" data-i18n="common-name">
+  <meta name="author" content="Jose Delvani" data-i18n="author-nome">
   <meta name="robots" content="index,follow">
-  <meta name="keywords" content="Delvani Eletricista, Iluminando a sua vida com segurança e eficiência. Instalação, manutenção e soluções elétricas seguras e eficientes, do seu jeito">
+  <meta name="keywords" content="Delvani Eletricista, Iluminando a sua vida com segurança e eficiência. Instalação, manutenção e soluções elétricas seguras e eficientes, do seu jeito" data-i18n="description-message">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="googlebot" content="index,follow">
-  <meta name="description" content="Iluminando a sua vida com segurança e eficiência. Instalação, manutenção e soluções elétricas seguras e eficientes, do seu jeito!">
+  <meta name="description" content="Iluminando a sua vida com segurança e eficiência. Instalação, manutenção e soluções elétricas seguras e eficientes, do seu jeito!" data-i18n="description-message">
   <meta name="theme-color" content="#6C757D">
   <meta name="msapplication-TileColor" content="#6C757D">
   <meta name="msapplication-TileImage" content="/static/img/favicon/ms-icon-144x144.png">
@@ -27,17 +27,17 @@
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://deletrica.github.io/">
-  <meta property="og:title" content="Delvani Eletricista">
-  <meta property="og:description" content="Iluminando a sua vida com segurança e eficiência. Instalação, manutenção e soluções elétricas seguras e eficientes, do seu jeito!">
+  <meta property="og:title" content="Delvani Eletricista" data-i18n="common-name">
+  <meta property="og:description" content="Iluminando a sua vida com segurança e eficiência. Instalação, manutenção e soluções elétricas seguras e eficientes, do seu jeito!" data-i18n="description-message">
   <meta property="og:image" content="https://deletrica.github.io/static/img/favicon/icon512_maskable.png">
 
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://deletrica.github.io/">
-  <meta property="twitter:title" content="Delvani Eletricista">
-  <meta property="twitter:description" content="Iluminando a sua vida com segurança e eficiência. Instalação, manutenção e soluções elétricas seguras e eficientes, do seu jeito!">
+  <meta property="twitter:title" content="Delvani Eletricista" data-i18n="common-name">
+  <meta property="twitter:description" content="Iluminando a sua vida com segurança e eficiência. Instalação, manutenção e soluções elétricas seguras e eficientes, do seu jeito!" data-i18n="description-message">
   <meta property="twitter:image" content="https://deletrica.github.io/static/img/favicon/icon512_maskable.png">
 
-  <title>Delvani Eletricista</title>
+  <title data-i18n="common-name">Delvani Eletricista</title>
 
   <link rel="manifest" href="/manifest.json" crossorigin="anonymous">
   <link rel="canonical" href="https://deletrica.github.io">
@@ -109,7 +109,9 @@
 
         <div class="text-center">
           <div class="mb-3"><span class="d-inline-block loader opacity-25"></span></div>
-          <div><small class="text-white-50 fw-medium">Powered by <span class="text-goldenrod">Jose Delvani</span></small></div>
+          <div>
+            <small class="text-white-50 fw-medium" data-i18n="powered-by">Powered by <span class="text-goldenrod" data-i18n="author-name">Jose Delvani</span></small>
+          </div>
         </div>
       </div>
     </div>
@@ -117,7 +119,7 @@
 
   <!-- main -->
   <div class="d-none">
-    <template data-template="profile">
+    <template data-template-card>
       <div class="position-fixed text-goldenrod top-0 start-0 w-100 h-100 z-1">
         <div class="position-absolute overflow-y-scroll top-50 start-0 translate-middle-y w-100 mh-100 py-3">
           <div class="container">
@@ -136,9 +138,9 @@
                       </div>
 
                       <div class="text-center">
-                        <h5 class="fw-bold m-0">DELVANI&ensp;ELETRICISTA</h5>
-                        <p class="text-white-50 m-0">Instalação e manutenção elétrica.</p>
-                        <p class="text-white-50 m-0"><small><i class="bi bi-geo-alt-fill text-danger"></i>&ensp;ITAREMA-CE</small></p>
+                        <h5 class="fw-bold m-0" data-i18n="common-name">{{ common_name }}</h5>
+                        <p class="text-white-50 m-0" data-i18n="summary-message">{{ summary_message }}</p>
+                        <p class="text-white-50 m-0"><small data-i18n="local-address"><i class="bi bi-geo-alt-fill text-danger"></i>&ensp;{{ local_address }}</small></p>
                       </div>
                     </div>
 
@@ -146,8 +148,8 @@
                     <div class="d-none d-sm-block text-secondary vr" style="padding: 0.01em;"></div>
 
                     <div class="col-sm text-center text-white-50 my-3">
-                      <div class="text-goldenrod fw-medium">TELEFONE</div>
-                      <h3 class="mb-3"><a href="action:dialog" class="text-decoration-none text-reset" data-dialog-btn="tel">(88) 9-9355-6712</a></h3>
+                      <div class="text-goldenrod fw-medium" data-i18n="phone">{{ phone }}</div>
+                      <h3 class="mb-3"><a href="action:dialog" class="text-decoration-none text-reset" data-dialog-btn="tel" data-i18n="formatted-phone-number">{{ formatted_phone_number }}</a></h3>
                       <div class="d-grid d-flex gap-3 justify-content-center align-items-center">
                         <div class="text-center">
                           <a href="action:dialog" class="text-decoration-none text-reset" data-dialog-btn="telegram">
@@ -179,7 +181,7 @@
 
                     <div class="col-sm col-md-8 my-3">
                       <div id="disqus_thread">
-                        <div class="text-center mb-3"><button class="btn btn-sm btn-light rounded-pill fw-medium px-3" data-btn="load-comments">Load comments?</button></div>
+                        <div class="text-center mb-3"><button class="btn btn-sm btn-light rounded-pill fw-medium px-3" data-btn="load-comments" data-i18n="load-comments">{{ show_comments }}</button></div>
                       </div>
                     </div>
                   </div>
@@ -189,17 +191,14 @@
           </div>
         </div>
       </div>
-    </template>
-  </div>
 
-  <!-- templates -->
-  <div class="d-none">
-    <template data-template="qrcode">
-      <div class="container-fluid">
-        <div class="row justify-content-center">
-          <div class="col-sm p-5">
-            <div class="ratio ratio-1x1">
-              <div class="bg-image qr-code" data-bg="qrcode"></div>
+      <div class="d-none" data-template-qrcode>
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-sm p-5">
+              <div class="ratio ratio-1x1">
+                <div class="bg-image qr-code" data-bg="qrcode"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -207,8 +206,12 @@
     </template>
   </div>
 
+  <div data-ui></div>
+
   <!-- scripts -->
   <script src="/static/js/libs/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="/static/js/libs/banana-i18n.js" crossorigin="anonymous"></script>
+  <script src="/static/js/libs/handlebars.min.js" crossorigin="anonymous"></script>
   <script src="/static/js/libs/qr-code-styling.js" crossorigin="anonymous"></script>
   <script src="/static/js/libs/jquery-confirm.min.js" crossorigin="anonymous"></script>
   <script src="/static/js/libs/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
