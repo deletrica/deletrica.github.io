@@ -1,7 +1,9 @@
 const locales = {
   'pt-br': {
+
     phone: 'Telefone',
     share: 'Compartilhar',
+    brazil: 'Brasil',
     qr_code: 'QR code',
     powered_by: 'Desenvolvido por',
     show_comments: 'Mostrar comentários?',
@@ -14,6 +16,7 @@ const locales = {
 locales.en = {
   phone: 'Phone',
   share: 'Share',
+  brazil: 'Brazil',
   qr_code: 'QR code',
   powered_by: 'Powered by',
   show_comments: 'Show comments?',

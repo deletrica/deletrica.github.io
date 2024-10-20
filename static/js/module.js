@@ -71,6 +71,9 @@ domReady = () => {
 
 function updateUI() {
   const data = Object.assign(profile, banana.messageStore.sourceMap.get(banana.messageStore.sourceMap.has(banana.locale) ? banana.locale : banana.finalFallback));
+
+  if (!['pt', 'pt-br'].includes(banana.localw)) data.local_address += ', ' + data.brazil;
+
   const html = $('[data-template-card]').html();
   const compile = Handlebars.compile(html);
 

@@ -5,5 +5,6 @@ const banana = new Banana('pt-br', {
 });
 
 banana.load(locales);
+banana.setLocale('en');
 
 export default banana;
