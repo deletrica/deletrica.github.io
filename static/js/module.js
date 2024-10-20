@@ -66,7 +66,9 @@ domReady = () => {
     else if (/^(telegram|whatsapp)$/.test(this.dataset.dialogBtn)) dialog.openSocial(this.dataset.dialogBtn);
   });
 
-  $('[data-btn="load-comments"]').click(function(evt) {
+  $('[data-btn="show-comments"]').click(function(evt) {
+    return $.alert(banana.i18n('show_comments') + ' → ' + banana.i18n('coming_soon'));
+
     $(this).fadeOut(undefined, function(evt) {
       $(this).parent().html(banana.i18n('loading_comments'));
       comments.load();
@@ -93,11 +95,12 @@ function updateUI(locale) {
   html = $('[data-template-card]').html();
   compile = Handlebars.compile(html);
 
+  $('#qrCodeStyle').remove();
   $('[data-ui]').html(compile(data));
 
   qrcode(vcard({ fn: profile.common_name, tel: $('[data-dialog-btn="tel"]').data('phone-number') }))
     .getRawData().then(blob => {
-      $(document.head).append($('<style></style>').append(`.qr-code { background-image: url("${URL.createObjectURL(blob)}"); }`));
+      $(document.head).append($('<style id="qrCodeStyle"></style>').append(`.qr-code { background-image: url("${URL.createObjectURL(blob)}"); }`));
       $(document.body).waitForImages(domReady);
     });
 }

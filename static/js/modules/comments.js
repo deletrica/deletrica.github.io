@@ -3,9 +3,12 @@ const script = doc.createElement('script');
 
 export default {
   load: () => {
-    script.src = '//deletrica.disqus.com/embed.js';
+    if ($('data-disqus-comments').length) $('data-disqus-comments').romove();
 
-    script.setAttribute('data-timestamp', +new Date());
-    (doc.head || doc.body).appendChild(script);
+    $(script)
+      .attr('data-disqus-comments', '')
+      .attr('data-timestamp', +new Date())
+      .attr('src', '//deletrica.disqus.com/embed.js')
+      .appendTo(doc.head || doc.body);
   }
 };
