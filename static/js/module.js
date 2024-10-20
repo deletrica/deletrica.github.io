@@ -12,13 +12,13 @@ import comments from './modules/comments.js';
 
 dialog = {
   openDial(el) {
-    location.assign(`tel:${$('[data-dialog-btn="tel"]').data('phone-number')}`);
+    location.assign(`tel:${updateUI.data.phone_number}`);
   },
 
   openShare() {
     share({
       url: location,
-      text: profile.common_name + ' ' + $('[data-dialog-btn="tel"]').text(),
+      text: `${profile.common_name} ${updateUI.data.formatted_phone_number}`,
       title: profile.common_name
     });
   },
@@ -26,16 +26,7 @@ dialog = {
   openVCard() {
     $.dialog({
       title: false,
-      content: $('[data-template-qrcode]').html(),
-      buttons: {
-        download: {
-          btnClass: 'text-bg-goldenrod',
-          action: () => qrcode.instance.download({ name: profile.common_name + ' ' + $('[data-dialog-btn="tel"]').text() })
-        },
-
-        ok: { btnClass: 'text-bg-goldenrod' }
-      },
-
+      content: dialog.qrcodeTemplate,
       backgroundDismiss: true
     })
   },
@@ -47,10 +38,7 @@ dialog = {
 };
 
 domReady = () => {
-  if (share.support) $('[data-dialog-btn="share"]').parent().removeAttr('hidden');
-
   $('[data-btn-translate]').click(function(evt) {
-
     if (this.value !== $('html').attr('lang')) {
       $('html').attr('lang', this.value);
       updateUI(this.value);
@@ -66,20 +54,12 @@ domReady = () => {
     else if (/^(telegram|whatsapp)$/.test(this.dataset.dialogBtn)) dialog.openSocial(this.dataset.dialogBtn);
   });
 
-  $('[data-btn="show-comments"]').click(function(evt) {
-    return $.alert(banana.i18n('show_comments') + ' → ' + banana.i18n('coming_soon'));
-
-    $(this).fadeOut(undefined, function(evt) {
-      $(this).parent().html(banana.i18n('loading_comments'));
-      comments.load();
-    });
-  });
 
   $('[data-page-splash]').fadeOut();
 };
 
 function updateUI(locale) {
-  let data, html, compile;
+  let data, compile, template;
 
   locale = typeof locale === 'string' && locale.toLowerCase().trim();
 
@@ -87,24 +67,29 @@ function updateUI(locale) {
     banana.setLocale(locale);
 
     data = Object.assign({}, banana.messageStore.sourceMap.get(locale));
-    data.phone_number = `+55${data.phone_number}`;
-    data.local_address += `, ${data.brazil}`;
-    data.formatted_phone_number = `+55 ${data.formatted_phone_number}`;
+    data.phone_number = data.int_phone_number;
+    data.local_address = data.int_local_address;
+    data.formatted_phone_number = data.int_formatted_phone_number;
   } else data = banana.messageStore.sourceMap.get('pt-br');
 
-  html = $('[data-template-card]').html();
-  compile = Handlebars.compile(html);
+  updateUI.data = data;
+  template = $('[data-template-card]').html();
+  compile = Handlebars.compile(template);
+  template = compile(data);
 
   $('#qrCodeStyle').remove();
-  $('[data-ui]').html(compile(data));
+  $('[data-ui] div').remove();
+  $('[data-ui]').html(template);
 
-  qrcode(vcard({ fn: profile.common_name, tel: $('[data-dialog-btn="tel"]').data('phone-number') }))
+  dialog.qrcodeTemplate = $('[data-template-qrcode]').html();
+
+  if (share.support) $('[data-ui]').find('[data-dialog-btn="share"]').parent().removeAttr('hidden');
+
+  qrcode(vcard({ fn: profile.common_name, tel: data.phone_number }))
     .getRawData().then(blob => {
       $(document.head).append($('<style id="qrCodeStyle"></style>').append(`.qr-code { background-image: url("${URL.createObjectURL(blob)}"); }`));
       $(document.body).waitForImages(domReady);
     });
 }
 
-$(window).on('load', function(evt) {
-  updateUI();
-});
+$(window).on('load', updateUI);

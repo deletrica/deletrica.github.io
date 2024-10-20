@@ -1,14 +1,21 @@
 const doc = document;
 const script = doc.createElement('script');
-
-export default {
-  load: () => {
-    if ($('data-disqus-comments').length) $('data-disqus-comments').romove();
+const username = 'deletrica';
+const loadComments = cb => {
+  if (!loadComments.loaded) {
+    loadComments.loaded = true;
 
     $(script)
-      .attr('data-disqus-comments', '')
+      .appendTo(doc.head || doc.body)
       .attr('data-timestamp', +new Date())
-      .attr('src', '//deletrica.disqus.com/embed.js')
-      .appendTo(doc.head || doc.body);
+      .attr('src', `//${username}.disqus.com/embed.js`)
+      .on('load', function() {
+        alert()
+        loadComments.loaded = true;
+        $(this).off(), cb();
+      })
+
   }
 };
+
+export default loadComments;

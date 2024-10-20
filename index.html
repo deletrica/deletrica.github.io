@@ -120,14 +120,14 @@
   <!-- main -->
   <div class="d-none">
     <template data-template-card>
-      <div class="position-fixed text-goldenrod top-0 start-0 w-100 h-100 z-1">
-        <div class="position-absolute overflow-y-scroll top-50 start-0 translate-middle-y w-100 mh-100 py-3">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8 col-xl-7 col-xxl-6">
-                <div class="container-fluid">
-                  <div class="row text-bg-goldenrod justify-content-end align-items-center rounded-top">
-                    <div class="col-auto px-0">
+      <div>
+        <div class="position-fixed text-goldenrod top-0 start-0 w-100 h-100 z-1">
+          <div class="position-absolute overflow-y-scroll top-50 start-0 translate-middle-y w-100 mh-100 py-3">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-lg-8 col-xl-7 col-xxl-6">
+                  <div class="d-flex text-bg-goldenrod justify-content-end align-items-center rounded-top mx-0">
+                    <div>
                       <div class="btn-group">
                         <button title="{{ translate }}" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                           <i class="bi bi-translate"></i>
@@ -145,61 +145,53 @@
                       </div>
                     </div>
 
-                    <div class="col-auto px-0" hidden><button title="{{ share }}" class="btn" data-dialog-btn="share"><i class="bi bi-share-fill"></i></button></div>
-                    <div class="col-auto px-0"><button title="{{ qr_code }}" class="btn" data-dialog-btn="qrcode"><i class="bi bi-qr-code"></i></button></div>
+                    <div hidden><button title="{{ share }}" class="btn" data-dialog-btn="share"><i class="bi bi-share-fill"></i></button></div>
+                    <div><button title="{{ qr_code }}" class="btn" data-dialog-btn="qrcode"><i class="bi bi-qr-code"></i></button></div>
                   </div>
 
-                  <div class="row bg-arsenic justify-content-center align-items-center rounded-bottom">
-                    <div class="col-sm text-goldenrod my-3">
-                      <div class="d-flex justify-content-center mb-3">
-                        <div class="bg-image user-avatar rounded-circle border border-3 shadow-sm"></div>
-                      </div>
-
-                      <div class="text-center">
-                        <h5 class="text-uppercase fw-bold m-0">{{ common_name }}</h5>
-                        <p class="text-white-50 m-0">{{ summary_message }}</p>
-                        <p class="text-uppercase text-white-50 m-0"><small><i class="bi bi-geo-alt-fill text-danger"></i>&ensp;{{ local_address }}</small></p>
-                      </div>
-                    </div>
-
-                    <hr class="d-sm-none text-secondary m-0">
-                    <div class="d-none d-sm-block text-secondary vr" style="padding: 0.01em;"></div>
-
-                    <div class="col-sm text-center text-white-50 my-3">
-                      <div class="text-uppercase text-goldenrod fw-medium">{{ phone }}</div>
-                      <h3 class="mb-3"><a href="action:dialog" class="text-decoration-none text-reset" data-dialog-btn="tel" data-phone-number="{{ phone_number }}">{{ formatted_phone_number }}</a></h3>
-                      <div class="d-grid d-flex gap-3 justify-content-center align-items-center">
-                        <div class="text-center">
-                          <a href="action:dialog" class="text-decoration-none text-reset" data-dialog-btn="telegram">
-                            <div class="d-flex justify-content-center">
-                              <div class="bg-image social-telegram"></div>
-                            </div>
-
-                            <small>Telegram</small>
-                          </a>
+                  <div class="container-fluid">
+                    <div class="row bg-arsenic justify-content-center align-items-center rounded-bottom">
+                      <div class="col-sm text-goldenrod my-3">
+                        <div class="d-flex justify-content-center mb-3">
+                          <div class="bg-image user-avatar rounded-circle border border-3 shadow-sm"></div>
                         </div>
 
-                        <div class="vr"></div>
-
                         <div class="text-center">
-                          <a href="action:dialog" class="text-decoration-none text-reset" data-dialog-btn="whatsapp">
-                            <div class="d-flex justify-content-center">
-                              <div class="bg-image social-whatsapp"></div>
-                            </div>
-
-                            <small>WhatsApp</small>
-                          </a>
+                          <h5 class="text-uppercase fw-bold m-0">{{ common_name }}</h5>
+                          <p class="text-white-50 m-0">{{ summary_message }}</p>
+                          <p class="text-uppercase text-white-50 m-0"><small><i class="bi bi-geo-alt-fill text-danger"></i>&ensp;{{ local_address }}</small></p>
                         </div>
                       </div>
-                    </div>
 
-                    <div class="w-100">
-                      <hr class="border border-secondary">
-                    </div>
+                      <hr class="d-sm-none text-secondary m-0">
+                      <div class="d-none d-sm-block text-secondary vr" style="padding: 0.01em;"></div>
 
-                    <div class="col-sm col-md-8 my-3">
-                      <div data-disqus-thread>
-                        <div class="text-center mb-3"><button class="btn btn-sm btn-light rounded-pill fw-medium px-3" data-btn="show-comments">{{ show_comments }}</button></div>
+                      <div class="col-sm text-center text-white-50 my-3">
+                        <div class="text-uppercase text-goldenrod fw-medium">{{ phone }}</div>
+                        <h3 class="mb-3"><a href="action:dialog" class="text-decoration-none text-reset" data-dialog-btn="tel" data-phone-number="{{ phone_number }}">{{ formatted_phone_number }}</a></h3>
+                        <div class="d-grid d-flex gap-3 justify-content-center align-items-center">
+                          <div class="text-center">
+                            <a href="action:dialog" class="text-decoration-none text-reset" data-dialog-btn="telegram">
+                              <div class="d-flex justify-content-center">
+                                <div class="bg-image social-telegram"></div>
+                              </div>
+
+                              <small>Telegram</small>
+                            </a>
+                          </div>
+
+                          <div class="vr"></div>
+
+                          <div class="text-center">
+                            <a href="action:dialog" class="text-decoration-none text-reset" data-dialog-btn="whatsapp">
+                              <div class="d-flex justify-content-center">
+                                <div class="bg-image social-whatsapp"></div>
+                              </div>
+
+                              <small>WhatsApp</small>
+                            </a>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -208,14 +200,14 @@
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="d-none" data-template-qrcode>
-        <div class="container-fluid">
-          <div class="row justify-content-center">
-            <div class="col-sm p-5">
-              <div class="ratio ratio-1x1">
-                <div class="bg-image qr-code" data-bg="qrcode"></div>
+        <div class="d-none" data-template-qrcode>
+          <div class="container-fluid">
+            <div class="row justify-content-center">
+              <div class="col-sm p-5">
+                <div class="ratio ratio-1x1">
+                  <div class="bg-image qr-code" data-bg="qrcode"></div>
+                </div>
               </div>
             </div>
           </div>
