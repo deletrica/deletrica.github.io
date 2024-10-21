@@ -75,6 +75,7 @@
   <link rel="stylesheet" href="/static/css/libs/bootstrap.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="/static/css/libs/jquery-confirm.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="/static/css/libs/bootstrap-icons.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/css/libs/notiflix-3.2.7.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="/static/css/product-sans.css" crossorigin="anonymous">
   <link rel="stylesheet" href="/static/css/loader.css" crossorigin="anonymous">
   <link rel="stylesheet" href="/static/css/style.css" crossorigin="anonymous">
@@ -126,70 +127,72 @@
             <div class="container">
               <div class="row justify-content-center">
                 <div class="col-lg-8 col-xl-7 col-xxl-6">
-                  <div class="d-flex text-bg-goldenrod justify-content-end align-items-center rounded-top mx-0">
-                    <div>
-                      <div class="btn-group">
-                        <button title="{{ translate }}" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                          <i class="bi bi-translate"></i>
-                        </button>
+                  <div data-notiflix-block>
+                    <div class="d-flex text-bg-goldenrod justify-content-end align-items-center rounded-top mx-0">
+                      <div>
+                        <div class="btn-group">
+                          <button type="button" title="{{ translate }}" data-bs-toggle="dropdown" aria-expanded="false" class="btn dropdown-toggle">
+                            <i class="bi bi-translate"></i>
+                          </button>
 
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item disabled" aria-disabled="true">{{ translate_to }}</a></li>
-                          <li>
-                            <hr class="dropdown-divider">
-                          </li>
-                          <li><button type="button" value="en" class="dropdown-item" data-btn-translate>English</button></li>
-                          <li><button type="button" value="es" class="dropdown-item" data-btn-translate>Español</button></li>
-                          <li><button type="button" value="pt-br" class="dropdown-item" data-btn-translate>Português (Brasil)</button></li>
-                        </ul>
+                          <ul class="dropdown-menu">
+                            <li><a class="dropdown-item disabled" aria-disabled="true">{{ translate_to }}</a></li>
+                            <li>
+                              <hr class="dropdown-divider">
+                            </li>
+                            <li><button type="button" value="en" class="dropdown-item" data-btn-translate>English</button></li>
+                            <li><button type="button" value="es" class="dropdown-item" data-btn-translate>Español</button></li>
+                            <li><button type="button" value="pt-br" class="dropdown-item" data-btn-translate>Português (Brasil)</button></li>
+                          </ul>
+                        </div>
                       </div>
+
+                      <div hidden><button type="button" title="{{ share }}" data-dialog-btn="share" class="btn"><i class="bi bi-share-fill"></i></button></div>
+                      <div><button type="button" title="{{ qr_code }}" data-dialog-btn="qrcode" class="btn"><i class="bi bi-qr-code"></i></button></div>
                     </div>
 
-                    <div hidden><button title="{{ share }}" class="btn" data-dialog-btn="share"><i class="bi bi-share-fill"></i></button></div>
-                    <div><button title="{{ qr_code }}" class="btn" data-dialog-btn="qrcode"><i class="bi bi-qr-code"></i></button></div>
-                  </div>
-
-                  <div class="container-fluid">
-                    <div class="row bg-arsenic justify-content-center align-items-center rounded-bottom">
-                      <div class="col-sm text-goldenrod my-3">
-                        <div class="d-flex justify-content-center mb-3">
-                          <div class="bg-image user-avatar rounded-circle border border-3 shadow-sm"></div>
-                        </div>
-
-                        <div class="text-center">
-                          <h5 class="text-uppercase fw-bold m-0">{{ common_name }}</h5>
-                          <p class="text-white-50 m-0">{{ summary_message }}</p>
-                          <p class="text-uppercase text-white-50 m-0"><small><i class="bi bi-geo-alt-fill text-danger"></i>&ensp;{{ local_address }}</small></p>
-                        </div>
-                      </div>
-
-                      <hr class="d-sm-none text-secondary m-0">
-                      <div class="d-none d-sm-block text-secondary vr" style="padding: 0.01em;"></div>
-
-                      <div class="col-sm text-center text-white-50 my-3">
-                        <div class="text-uppercase text-goldenrod fw-medium">{{ phone }}</div>
-                        <h3 class="mb-3"><a href="action:dialog" class="text-decoration-none text-reset" data-dialog-btn="tel" data-phone-number="{{ phone_number }}">{{ formatted_phone_number }}</a></h3>
-                        <div class="d-grid d-flex gap-3 justify-content-center align-items-center">
-                          <div class="text-center">
-                            <a href="action:dialog" class="text-decoration-none text-reset" data-dialog-btn="telegram">
-                              <div class="d-flex justify-content-center">
-                                <div class="bg-image social-telegram"></div>
-                              </div>
-
-                              <small>Telegram</small>
-                            </a>
+                    <div class="container-fluid">
+                      <div class="row bg-arsenic justify-content-center align-items-center rounded-bottom">
+                        <div class="col-sm text-goldenrod my-3">
+                          <div class="d-flex justify-content-center mb-3">
+                            <div class="bg-image user-avatar rounded-circle border border-3 shadow-sm"></div>
                           </div>
 
-                          <div class="vr"></div>
-
                           <div class="text-center">
-                            <a href="action:dialog" class="text-decoration-none text-reset" data-dialog-btn="whatsapp">
-                              <div class="d-flex justify-content-center">
-                                <div class="bg-image social-whatsapp"></div>
-                              </div>
+                            <h5 class="text-uppercase fw-bold m-0">{{ common_name }}</h5>
+                            <p class="text-white-50 m-0">{{ summary_message }}</p>
+                            <p class="text-uppercase text-white-50 m-0"><small><i class="bi bi-geo-alt-fill text-danger"></i>&ensp;{{ local_address }}</small></p>
+                          </div>
+                        </div>
 
-                              <small>WhatsApp</small>
-                            </a>
+                        <hr class="d-sm-none text-secondary m-0">
+                        <div class="d-none d-sm-block text-secondary vr" style="padding: 0.01em;"></div>
+
+                        <div class="col-sm text-center text-white-50 my-3">
+                          <div class="text-uppercase text-goldenrod fw-medium">{{ phone }}</div>
+                          <h3 class="mb-3"><a href="action:dialog" class="text-decoration-none text-reset" data-dialog-btn="tel" data-phone-number="{{ phone_number }}">{{ formatted_phone_number }}</a></h3>
+                          <div class="d-grid d-flex gap-3 justify-content-center align-items-center">
+                            <div class="text-center">
+                              <a href="action:dialog" class="text-decoration-none text-reset" data-dialog-btn="telegram">
+                                <div class="d-flex justify-content-center">
+                                  <div class="bg-image social-telegram"></div>
+                                </div>
+
+                                <small>Telegram</small>
+                              </a>
+                            </div>
+
+                            <div class="vr"></div>
+
+                            <div class="text-center">
+                              <a href="action:dialog" class="text-decoration-none text-reset" data-dialog-btn="whatsapp">
+                                <div class="d-flex justify-content-center">
+                                  <div class="bg-image social-whatsapp"></div>
+                                </div>
+
+                                <small>WhatsApp</small>
+                              </a>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -224,6 +227,7 @@
   <script src="/static/js/libs/handlebars.min.js" crossorigin="anonymous"></script>
   <script src="/static/js/libs/qr-code-styling.js" crossorigin="anonymous"></script>
   <script src="/static/js/libs/jquery-confirm.min.js" crossorigin="anonymous"></script>
+  <script src="/static/js/libs/notiflix-3.2.7.min.js" crossorigin="anonymous"></script>
   <script src="/static/js/libs/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   <script src="/static/js/libs/jquery.waitforimages.min.js" crossorigin="anonymous"></script>
   <script src="/static/js/swr.js" crossorigin="anonymous"></script>

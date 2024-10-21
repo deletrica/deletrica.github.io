@@ -1,7 +1,3 @@
-"use strict";
-
-let dialog, domReady;
-
 import share from './modules/share.js';
 import vcard from './modules/vcard.js';
 import banana from './modules/banana.js';
@@ -10,7 +6,7 @@ import social from './modules/social.js';
 import profile from './modules/profile.js';
 import comments from './modules/comments.js';
 
-dialog = {
+const dialog = {
   openDial(el) {
     location.assign(`tel:${updateUI.data.phone_number}`);
   },
@@ -37,11 +33,10 @@ dialog = {
   }
 };
 
-domReady = () => {
+const domReady = () => {
   $('[data-btn-translate]').click(function(evt) {
     if (this.value !== $('html').attr('lang')) {
-      $('html').attr('lang', this.value);
-      updateUI(this.value);
+      $('html').attr('lang', this.value), updateUI(this.value);
     }
   });
 
@@ -54,12 +49,11 @@ domReady = () => {
     else if (/^(telegram|whatsapp)$/.test(this.dataset.dialogBtn)) dialog.openSocial(this.dataset.dialogBtn);
   });
 
-
   $('[data-page-splash]').fadeOut();
 };
 
 function updateUI(locale) {
-  let data, compile, template;
+  let compile, template, data = banana.messageStore.sourceMap.get('pt-br');
 
   locale = typeof locale === 'string' && locale.toLowerCase().trim();
 
@@ -70,7 +64,7 @@ function updateUI(locale) {
     data.phone_number = data.int_phone_number;
     data.local_address = data.int_local_address;
     data.formatted_phone_number = data.int_formatted_phone_number;
-  } else data = banana.messageStore.sourceMap.get('pt-br');
+  }
 
   updateUI.data = data;
   template = $('[data-template-card]').html();
