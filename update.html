@@ -1,22 +1,13 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <meta charset="UTF-8">  
-
-  <script id="nomodulejs" nomodule>
-    console.log("The browser does not support JavaScript modules");
-  </script>
-
-  <script>
-    if(!document.getElementById("nomodulejs").noModule) {
-      window.location.replace('/');
-    }
-  </script>
-  
+<head>    
+  <meta charset="UTF-8">    
   <meta name="robots" content="noindex,nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="googlebot" content="noindex,nofollow">
+
+  <script type="module">window.location.replace('/');</script>
   
   <title>Update your Browser!</title>
 
