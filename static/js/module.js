@@ -67,6 +67,7 @@ function updateUI(locale) {
   }
 
   updateUI.data = data;
+  document.title = `${data.common_name} — ${data.summary_message}`;
   template = $('[data-template-card]').html();
   compile = Handlebars.compile(template);
   template = compile(data);
