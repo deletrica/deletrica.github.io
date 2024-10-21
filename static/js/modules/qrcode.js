@@ -4,7 +4,7 @@ const qrcode = data => {
     width: 512,
     height: 512,
     type: 'svg',
-    image: '/static/img/favicon/favicon.svg',
+    image: '/static/img/svg/message-phone-chat-icon.svg',
     qrOptions: {
       errorCorrectionLevel: 'M'
     },
