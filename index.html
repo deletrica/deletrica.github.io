@@ -125,28 +125,55 @@
     <div class="position-absolute overflow-y-scroll top-50 start-0 w-100 mh-100 py-3 translate-middle-y">
       <div class="container">
         <div class="row justify-content-center align-items-center">
-          <div class="col-md-8">
-            <article>
+          <div class="col-md-6">
+            <article class="border rounded">
               <header>
-                <figure class="text-center">
+                <figure class="text-center my-3">
                   <img src="/static/img/user/avatar.jpg" class="user-avatar rounded-circle border border-3 m-0" alt="Foto do perfil de Delvani Eletricista">
                 </figure>
 
-                <h1 class="text-center fw-bold">
+                <h1 class="text-center fw-bold px-3">
                   Delvani Eletricista
                 </h1>
 
-                <p class="text-center text-white opacity-75">
+                <p class="text-center text-white opacity-75 px-3">
                   Iluminando a sua vida com segurança e eficiência. Instalação, manutenção e soluções elétricas seguras e eficientes, do seu jeito!
                 </p>
               </header>
 
               <session>
-                <div class="accordion accordion-flush mb-5" id="accordionFlushListServiceWork">
-                  <div class="accordion-item">
+                <hr class="mx-3">
+
+                <div class="text-center">
+                  <div class="d-grid d-flex flex-wrap justify-content-center align-items-center text-white opacity-75 social-btns gap-5 mb-4">
+                    <div>
+                      <a id="btnSignal" href="dialog:social" class="text-decoration-none text-reset social-link" aria-label="Conversar no Signal">
+                        <div class="social-icon"><i class="bi bi-signal"></i></div>
+                        <div class="social-label"><span>Signal</span></div>
+                      </a>
+                    </div>
+
+                    <div>
+                      <a id="btnTelegram" href="dialog:social" class="text-decoration-none text-reset social-link" aria-label="Conversar no Telegram">
+                        <div class="social-icon"><i class="bi bi-telegram"></i></div>
+                        <div class="social-label"><span>Telegram</span></div>
+                      </a>
+                    </div>
+
+                    <div>
+                      <a id="btnWhatsApp" href="dialog:social" class="text-decoration-none text-reset social-link" aria-label="Conversar no WhatsApp">
+                        <div class="social-icon"><i class="bi bi-whatsapp"></i></div>
+                        <div class="social-label"><span>WhatsApp</span></div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion accordion-flush" id="accordionFlushListServiceWork">
+                  <div class="accordion-item rounded">
                     <h2 class="accordion-header">
-                      <button title="Clique para vê a lista completa." class="accordion-button collapsed fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#flushCollapseListServiceWork" aria-expanded="false" aria-controls="flushCollapseListServiceWork">
-                        <span><i class="bi bi-arrow-return-right"></i>&ensp;Serviços elétricos…</span>
+                      <button title="Clique para vê a lista completa." class="accordion-button collapsed rounded-bottom fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#flushCollapseListServiceWork" aria-expanded="false" aria-controls="flushCollapseListServiceWork">
+                        <span><i class="bi bi-list-check"></i>&ensp;Serviços elétricos…</span>
                       </button>
                     </h2>
 
@@ -179,32 +206,6 @@
                           <li>Troca ou upgrade de painel elétrico.</li>
                         </ul>
                       </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="text-center border rounded lh-1 p-3">
-                  <h5>Saiba mais</h5>
-
-                  <p class="text-white opacity-75">
-                    enviando uma mensagem para
-                  </p>
-
-                  <hr>
-
-                  <div class="d-grid d-flex flex-wrap justify-content-center align-items-center text-white opacity-75 gap-5 py-3">
-                    <div>
-                      <a id="btnTelegram" href="dialog:social" class="text-decoration-none text-reset social-link" aria-label="Conversar no Telegram">
-                        <div class="social-icon mb-2"><i class="bi bi-telegram"></i></div>
-                        <div class="social-label"><span>Telegram</span></div>
-                      </a>
-                    </div>
-
-                    <div>
-                      <a id="btnWhatsApp" href="dialog:social" class="text-decoration-none text-reset social-link" aria-label="Conversar no WhatsApp">
-                        <div class="social-icon mb-2"><i class="bi bi-whatsapp"></i></div>
-                        <div class="social-label"><span>WhatsApp</span></div>
-                      </a>
                     </div>
                   </div>
                 </div>
