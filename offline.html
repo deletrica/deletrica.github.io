@@ -2,24 +2,17 @@
 <html lang="en">
 
 <head>
+  <script>
+    setInterval(function() { location.reload(); }, 5000);
+    if (location.pathname.indexOf('offline.html') !== -1) { location.replace('/'); }
+  </script>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="robots" content="noindex,nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="googlebot" content="noindex,nofollow">
-  
-  <script>
-    ;(function(w) {
-      "use strict";
-  
-      if (w.location.pathname.indexOf('offline.html') !== -1) {
-        return w.location.replace('/');
-      }
-  
-      setInterval(function() { w.location.reload(); }, 2500);
-    })(this);
-  </script>
-  
+
   <title>Sorry!</title>
   <style>
     body {

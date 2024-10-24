@@ -4,3 +4,4 @@ Disallow: /404.html
 Disallow: /offline.html
 Disallow: /update.html
 Allow: /index.html
+Allow: /googleab43fee982b9d7f6.html

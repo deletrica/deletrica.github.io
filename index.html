@@ -1,18 +1,17 @@
 <!doctype html>
-<html lang="pt-br" translate="no">
+<html lang="pt-br">
 
 <head>
-  <!-- metas -->
-  <meta charset="utf-8">
-
   <script nomodule>
-    window.location.replace('/update.html?reason=nomodule');
+    location.replace('/update.html?reason=nomodule');
   </script>
 
   <noscript>
     <meta http-equiv="refresh" content="0; url=/update.html?reason=noscript">
   </noscript>
 
+  <!-- metas -->
+  <meta charset="utf-8">
   <meta name="title" content="Delvani Eletricista">
   <meta name="author" content="Jose Delvani">
   <meta name="robots" content="index,follow">
@@ -20,8 +19,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="googlebot" content="index,follow">
   <meta name="description" content="Iluminando a sua vida com segurança e eficiência. Instalação, manutenção e soluções elétricas seguras e eficientes, do seu jeito!">
-  <meta name="theme-color" content="#6C757D">
-  <meta name="msapplication-TileColor" content="#6C757D">
+  <meta name="theme-color" content="#DAA520">
+  <meta name="msapplication-TileColor" content="#DAA520">
   <meta name="msapplication-TileImage" content="/static/img/favicon/ms-icon-144x144.png">
   <meta name="google-site-verification" content="dh77UPCI3potai9m5u1_jwKlfuMfvfmHhS0tzYhXQMA">
 
@@ -64,20 +63,20 @@
 
   <!-- preloads -->
   <link rel="preload" href="/static/css/libs/bootstrap.min.css" as="style" crossorigin="anonymous">
-  <link rel="preload" href="/static/css/libs/jquery-confirm.min.css" as="style" crossorigin="anonymous">
   <link rel="preload" href="/static/css/libs/bootstrap-icons.min.css" as="style" crossorigin="anonymous">
   <link rel="preload" href="/static/css/product-sans.css" as="style" crossorigin="anonymous">
-  <link rel="preload" href="/static/css/loader.css" as="style" crossorigin="anonymous">
   <link rel="preload" href="/static/css/style.css" as="style" crossorigin="anonymous">
-  <link rel="preload" href="/static/js/module.js" as="script" crossorigin="anonymous">
+
+  <link rel="preload" href="/static/js/libs/jquery.min.js" as="script" crossorigin="anonymous">
+  <link rel="preload" href="/static/js/libs/bootstrap.bundle.min.js" as="script" crossorigin="anonymous">
+  <link rel="preload" href="/static/js/libs/jquery.waitforimages.min.js" as="script" crossorigin="anonymous">
+  <link rel="preload" href="/static/js/swr.js" as="script" crossorigin="anonymous">
+  <link rel="preload" href="/static/js/app.js" as="script" crossorigin="anonymous">
 
   <!-- styles -->
   <link rel="stylesheet" href="/static/css/libs/bootstrap.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="/static/css/libs/jquery-confirm.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="/static/css/libs/bootstrap-icons.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="/static/css/libs/notiflix-3.2.7.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="/static/css/product-sans.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="/static/css/loader.css" crossorigin="anonymous">
   <link rel="stylesheet" href="/static/css/style.css" crossorigin="anonymous">
 
   <!-- Google tag (gtag.js) -->
@@ -90,149 +89,108 @@
 
     gtag('config', 'G-4528RJHMH6');
   </script>
-
-  <script>
-    var disqus_config = function() {
-      this.page.url = document.URL;
-      this.page.identifier = window.location.hostname;
-    };
-  </script>
 </head>
 
-<body class="position-fixed bg-cover top-0 start-0 w-100 h-100">
-  <!-- splash screen -->
-  <div class="position-fixed text-bg-arsenic top-0 start-0 w-100 h-100 z-2" data-page-splash>
-    <div class="position-absolute top-50 start-0 translate-middle-y w-100">
-      <div class="container-fluid">
-        <div class="d-flex justify-content-center">
-          <span class="bg-image app-icon rounded-circle"></span>
+<body class="text-bg-goldenrod user-select-none">
+  <div id="splashScreen" class="position-fixed text-bg-arsenic top-0 start-0 w-100 h-100 z-1">
+    <div class="position-absolute overflow-y-scroll top-50 start-0 w-100 mh-100 py-3 translate-middle-y">
+      <div class="container">
+        <div class="text-center mb-3">
+          <span class="bg-image app-icon rounded-circle shadow"></span>
         </div>
 
-        <div class="text-center">
-          <div class="mb-3"><span class="d-inline-block loader opacity-25"></span></div>
-          <div>
-            <small class="text-white-50 fw-medium">Powered by <span class="text-goldenrod">Jose Delvani</span></small>
+        <p class="text-center app-title fw-medium m-0"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="position-fixed text-bg-arsenic top-0 start-0 w-100 h-100 z-0">
+    <div class="position-absolute overflow-y-scroll top-50 start-0 w-100 mh-100 py-3 translate-middle-y">
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-md-8">
+            <article>
+              <header>
+                <figure class="text-center">
+                  <img src="/static/img/user/avatar.jpg" class="user-avatar rounded-circle border border-3 m-0" alt="Foto do perfil de Delvani Eletricista">
+                </figure>
+
+                <h1 class="text-center fw-bold">
+                  Delvani Eletricista
+                </h1>
+
+                <p class="text-center text-white opacity-75">
+                  Iluminando a sua vida com segurança e eficiência. Instalação, manutenção e soluções elétricas seguras e eficientes, do seu jeito!
+                </p>
+              </header>
+
+              <session>
+                <div class="accordion accordion-flush mb-5" id="accordionFlushExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button title="Clique para vê a lista completa." class="accordion-button collapsed fs-5" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        <span><i class="bi bi-arrow-return-right"></i>&ensp;Serviços elétricos…</span>
+                      </button>
+                    </h2>
+
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                      <div class="accordion-body">
+                        <ul>
+                          <li>Instalação de iluminação externa.</li>
+                          <li>Instalação de luminárias.</li>
+                          <li>Instalação de tomadas e interruptores.</li>
+                          <li>Realocação de tomadas e interruptores.</li>
+                          <li>Reparo de tomadas e interruptores.</li>
+                          <li>A/C residencial.</li>
+                          <li>Inspeções elétricas.</li>
+                          <li>Instalação.</li>
+                          <li>Instalação de aparelhos elétricos.</li>
+                          <li>Instalação de aterramento.</li>
+                          <li>Instalação de fiação elétrica.</li>
+                          <li>Instalação de ventiladores.</li>
+                          <li>Manutenção elétrica.</li>
+                          <li>Montagem de peças elétricas.</li>
+                          <li>Reformas.</li>
+                          <li>Reparo de fiação elétrica.</li>
+                          <li>Reparo de luminária.</li>
+                          <li>Reparo de painel elétrico.</li>
+                          <li>Reparo de ventilador.</li>
+                          <li>Reparos gerais.</li>
+                          <li>Restauração de instalação elétrica.</li>
+                          <li>Troca de fusível elétrico.</li>
+                          <li>Troca de resistência de aquecedor elétrico.</li>
+                          <li>Troca ou upgrade de painel elétrico.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="text-center border rounded lh-1 p-3">
+                  <h5>Saiba mais</h5>
+                  <hr>
+                  <div class="d-grid d-flex flex-wrap justify-content-center align-items-center text-white opacity-75 social-btns gap-4">
+                    <div><a title="Facebook" class="text-decoration-none text-reset social-link"><i class="bi bi-facebook"></i></a></div>
+                    <div><a title="Instagram" class="text-decoration-none text-reset social-link"><i class="bi bi-instagram"></i></a></div>
+                    <div><a title="Telegram" href="dialog:social" class="text-decoration-none text-reset social-link"><i class="bi bi-telegram"></i></a></div>
+                    <div><a title="WhatsApp" href="dialog:social" class="text-decoration-none text-reset social-link"><i class="bi bi-whatsapp"></i></a></div>
+                  </div>
+                </div>
+              </session>
+            </article>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- main -->
-  <div class="d-none">
-    <template data-template-card>
-      <div>
-        <div class="position-fixed text-goldenrod top-0 start-0 w-100 h-100 z-1">
-          <div class="position-absolute overflow-y-scroll top-50 start-0 translate-middle-y w-100 mh-100 py-3">
-            <div class="container">
-              <div class="row justify-content-center">
-                <div class="col-lg-8 col-xl-7 col-xxl-6">
-                  <div data-notiflix-block>
-                    <div class="d-flex text-bg-goldenrod justify-content-end align-items-center rounded-top mx-0">
-                      <div>
-                        <div class="btn-group">
-                          <button type="button" title="{{ translate }}" data-bs-toggle="dropdown" aria-expanded="false" class="btn dropdown-toggle">
-                            <i class="bi bi-translate"></i>
-                          </button>
-
-                          <ul class="dropdown-menu">
-                            <li><a class="dropdown-item disabled" aria-disabled="true">{{ translate_to }}</a></li>
-                            <li>
-                              <hr class="dropdown-divider">
-                            </li>
-                            <li><button type="button" value="en" class="dropdown-item" data-btn-translate>English</button></li>
-                            <li><button type="button" value="es" class="dropdown-item" data-btn-translate>Español</button></li>
-                            <li><button type="button" value="pt-br" class="dropdown-item" data-btn-translate>Português (Brasil)</button></li>
-                          </ul>
-                        </div>
-                      </div>
-
-                      <div hidden><button type="button" title="{{ share }}" data-dialog-btn="share" class="btn"><i class="bi bi-share-fill"></i></button></div>
-                      <div><button type="button" title="{{ qr_code }}" data-dialog-btn="qrcode" class="btn"><i class="bi bi-qr-code"></i></button></div>
-                    </div>
-
-                    <div class="container-fluid">
-                      <div class="row bg-arsenic justify-content-center align-items-center rounded-bottom">
-                        <div class="col-sm text-goldenrod my-3">
-                          <div class="d-flex justify-content-center mb-3">
-                            <div class="bg-image user-avatar rounded-circle border border-3 shadow-sm"></div>
-                          </div>
-
-                          <div class="text-center">
-                            <h5 class="text-uppercase fw-bold m-0">{{ common_name }}</h5>
-                            <p class="text-white-50 m-0">{{ summary_message }}</p>
-                            <p class="text-uppercase text-white-50 m-0"><small><i class="bi bi-geo-alt-fill text-danger"></i>&ensp;{{ local_address }}</small></p>
-                          </div>
-                        </div>
-
-                        <hr class="d-sm-none text-secondary m-0">
-                        <div class="d-none d-sm-block text-secondary vr" style="padding: 0.01em;"></div>
-
-                        <div class="col-sm text-center text-white-50 my-3">
-                          <div class="text-uppercase text-goldenrod fw-medium">{{ phone }}</div>
-                          <h3 class="mb-3"><a href="action:dialog" class="text-decoration-none text-reset" data-dialog-btn="tel" data-phone-number="{{ phone_number }}">{{ formatted_phone_number }}</a></h3>
-                          <div class="d-grid d-flex gap-3 justify-content-center align-items-center">
-                            <div class="text-center">
-                              <a href="action:dialog" class="text-decoration-none text-reset" data-dialog-btn="telegram">
-                                <div class="d-flex justify-content-center">
-                                  <div class="bg-image social-telegram"></div>
-                                </div>
-
-                                <small>Telegram</small>
-                              </a>
-                            </div>
-
-                            <div class="vr"></div>
-
-                            <div class="text-center">
-                              <a href="action:dialog" class="text-decoration-none text-reset" data-dialog-btn="whatsapp">
-                                <div class="d-flex justify-content-center">
-                                  <div class="bg-image social-whatsapp"></div>
-                                </div>
-
-                                <small>WhatsApp</small>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="d-none" data-template-qrcode>
-          <div class="container-fluid">
-            <div class="row justify-content-center">
-              <div class="col-sm p-5">
-                <div class="ratio ratio-1x1">
-                  <div class="bg-image qr-code" data-bg="qrcode"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </template>
-  </div>
-
-  <div data-ui><!-- the ui --></div>
 
   <!-- scripts -->
   <script src="/static/js/libs/jquery.min.js" crossorigin="anonymous"></script>
-  <script src="/static/js/libs/banana-i18n.js" crossorigin="anonymous"></script>
-  <script src="/static/js/libs/handlebars.min.js" crossorigin="anonymous"></script>
-  <script src="/static/js/libs/qr-code-styling.js" crossorigin="anonymous"></script>
-  <script src="/static/js/libs/jquery-confirm.min.js" crossorigin="anonymous"></script>
-  <script src="/static/js/libs/notiflix-3.2.7.min.js" crossorigin="anonymous"></script>
   <script src="/static/js/libs/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   <script src="/static/js/libs/jquery.waitforimages.min.js" crossorigin="anonymous"></script>
   <script src="/static/js/swr.js" crossorigin="anonymous"></script>
-  <script src="/static/js/navigator.js" crossorigin="anonymous"></script>
-  <script type="module" src="/static/js/module.js" crossorigin="anonymous"></script>
+  <script type="module" src="/static/js/app.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

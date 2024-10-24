@@ -9,8 +9,8 @@
   "short_name": "Delvani Eletricista",
   "orientation": "any",
   "description": "Iluminando a sua vida com segurança e eficiência. Instalação, manutenção e soluções elétricas seguras e eficientes, do seu jeito!",
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#DAA520",
+  "background_color": "#212429",
   "icons": [
     {
       "src": "/static/img/favicon/web-app-manifest-192x192.png",
